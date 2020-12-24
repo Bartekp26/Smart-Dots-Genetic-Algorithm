@@ -1,12 +1,12 @@
-Dot dot;
+Population dots;
 
 void setup(){
   size(800,800);
-  dot = new Dot();
+  dots = new Population(200);
 }
 
 void draw(){
   background(255);
-  dot.update();
-  dot.show();
+  dots.update();
+  dots.show();
 }
