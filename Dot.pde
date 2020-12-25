@@ -45,7 +45,9 @@ class Dot {
         dead = true;
       } else if (goal.ifReached(pos.x, pos.y)){
         reachedGoal = true;
-      } 
+      } else if (obstacles[0].ifHit(pos.x, pos.y)){
+        dead = true;
+      }
     }
   }
   
