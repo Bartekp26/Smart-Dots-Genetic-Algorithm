@@ -5,6 +5,7 @@ class Dot {
   Brain brain;
   
   boolean dead = false;
+  boolean reachedGoal = false;
 
 
   Dot() {
@@ -40,16 +41,12 @@ class Dot {
   void update() {
     if (!dead) {
       move();
-      
       if (pos.x < 3 || pos.y < 3 || pos.x > width-3 || pos.y > height-3) {
         dead = true;
-      }
+      } else if (goal.ifReached(pos.x, pos.y)){
+        reachedGoal = true;
+      } 
     }
   }
-  
-  
-  
-  
-  
   
 }
