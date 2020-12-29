@@ -39,16 +39,19 @@ class Dot {
 
 
   void update() {
-    if (!dead) {
+    if (!dead && !reachedGoal) {
       move();
       if (pos.x < 3 || pos.y < 3 || pos.x > width-3 || pos.y > height-3) {
         dead = true;
       } else if (goal.ifReached(pos.x, pos.y)){
         reachedGoal = true;
-      } else if (obstacles[0].ifHit(pos.x, pos.y)){
-        dead = true;
+      } else {
+        for(int i = 0; i < obstacles.length; i++){
+          if (obstacles[i].ifHit(pos.x, pos.y)){
+            dead = true;
+          }
+        }
       }
     }
-  }
-  
+  } 
 }
