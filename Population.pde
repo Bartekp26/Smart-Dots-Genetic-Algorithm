@@ -23,8 +23,20 @@ class Population{
   }
   
   
+  void calculateFitness(){
+    for(int i = 0; i < dots.length; i++){
+      dots[i].calculateFitness();
+    }
+  }
   
   
-  
+  boolean allDotsDead(){
+    for(int i = 0; i < dots.length; i++){
+      if(!dots[i].dead){
+        return false;
+      }
+    }
+    return true;
+  }
   
 }

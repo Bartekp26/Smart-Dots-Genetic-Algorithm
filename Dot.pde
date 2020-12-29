@@ -4,6 +4,8 @@ class Dot {
   PVector acc;
   Brain brain;
   
+  float fitness;
+  
   boolean dead = false;
   boolean reachedGoal = false;
 
@@ -53,5 +55,11 @@ class Dot {
         }
       }
     }
-  } 
+  }
+  
+  
+  void calculateFitness(){
+    float distanceToGoal = dist(pos.x, pos.y, goal.x, goal.y);
+    fitness = 1.0/(distanceToGoal*distanceToGoal);
+  }
 }
