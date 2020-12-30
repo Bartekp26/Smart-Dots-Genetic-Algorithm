@@ -4,7 +4,7 @@ Obstacle[] obstacles;
 
 void setup(){
   size(800,800);
-  dots = new Population(200);
+  dots = new Population(500);
   goal = new Goal(width/2, 50, 30, 30);
   obstacles = new Obstacle[2];
   obstacles[0] = new Obstacle(0, 200, 200, 30);
@@ -18,7 +18,17 @@ void draw(){
   for(int i = 0; i < obstacles.length; i++){
     obstacles[i].show();
   }
-  
-  dots.update();
-  dots.show();
+
+//----------------------------------------------
+
+  if(dots.allDotsDead()){
+    
+    dots.calculateFitness();
+    dots.naturalSelection();
+    dots.mutateBabies();
+    
+  } else {
+    dots.update();
+    dots.show();
+  }
 }
